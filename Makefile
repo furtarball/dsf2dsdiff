@@ -10,4 +10,4 @@ dsdiff.o : dsdiff.h endianness.h
 
 .PHONY : clean
 clean :
-	-rm $(objects) outfile*
+	-rm $(objects)
