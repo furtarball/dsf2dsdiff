@@ -1,6 +1,7 @@
 #include "dsf.h"
 #include "dsdiff.h"
 #include "dsf2dsdiff.h"
+#include <inttypes.h>
 #include <stdio.h>
 
 // get duration in human-readable form
@@ -10,7 +11,7 @@ void duration_hr(char str[], dsfinfo dsf) {
 	samples -= minutes * 60 * dsf.fs;
 	double seconds = (double)samples / dsf.fs;
 
-	snprintf(str, 26, "%02i:%05.2lf", minutes, seconds);
+	snprintf(str, 26, "%02" PRIu64 ":%05.2f", minutes, seconds);
 }
 
 int main(int argc, char** argv) {
