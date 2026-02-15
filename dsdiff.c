@@ -153,6 +153,7 @@ void convert_DSD_data(FILE** infile, FILE** outfile, dsfinfo dsf) {
 		}
 		for(int i = 0; i < dsf.channels; i++) {
 			fread(blocks[i], l, 1, *infile);
+			fseeko(*infile, dsf.blockSize - l, SEEK_CUR);
 		}
 		for(int i=0; i<l*dsf.channels; i+=dsf.channels) {
 			for(int j = 0; j < dsf.channels; j++) {
